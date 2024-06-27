@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "c412e8c4b3175b8b9369928c855efb49"
+name = "custom-cart-notes-app"
+handle = "custom-cart-notes-app"
+application_url = "https://representative-tables-dylan-burden.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "thisisjustastorefortesting.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://representative-tables-dylan-burden.trycloudflare.com/auth/callback",
+  "https://representative-tables-dylan-burden.trycloudflare.com/auth/shopify/callback",
+  "https://representative-tables-dylan-burden.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
